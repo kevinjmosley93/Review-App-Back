@@ -57,14 +57,15 @@ router.get('/reviews/:id', requireToken, (req, res, next) => {
 
 // CREATE
 // POST /reviews
-router.post('/reviews', (req, res, next) => {
+router.post('/reviews', requireToken, (req, res, next) => {
   // set owner of new reviews to be current user
-  // req.body.review.owner = req.user.id
+  console.log('this is req', req)
+  req.body.review.owner = req.user.id
 
-  Reviews.create(req.body.reviews)
+  Reviews.create(req.body.review)
     // respond to succesful `create` with status 201 and JSON of new "reviews"
     .then(review => {
-      res.status(201).json({ reviews: review.toObject() })
+      res.status(201).json({ review: review.toObject() })
     })
     // if an error occurs, pass it off to our error handler
     // the error handler needs the error message and the `res` object so that it

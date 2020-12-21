@@ -10,11 +10,11 @@ curl "${API}${URL_PATH}" \
   --header "Content-Type: application/json" \
   --header "Authorization: Bearer ${TOKEN}" \
   --data '{
-    "reviews": {
+    "review": {
       "name": "'"${NAME}"'",
       "title": "'"${TITLE}"'",
       "content": "'"${DES}"'",
-      "owner": "'"${OWNER}"'"
+      "rating": "'"${RATING}"'"
     }
   }'
 
