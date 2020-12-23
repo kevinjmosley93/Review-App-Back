@@ -103,12 +103,12 @@ router.delete('/reviews/:id', requireToken, (req, res, next) => {
     .then(handle404)
     .then(review => {
       // throw an error if current user doesn't own `reviews`
-      requireOwnership(req, review)
+      // requireOwnership(req, review)
       // delete the reviews ONLY IF the above didn't throw
       review.deleteOne()
     })
     // send back 204 and no content if the deletion succeeded
-    .then(() => res.sendStatus(204))
+    .then(() => res.sendStatus(200))
     // if an error occurs, pass it to the handler
     .catch(next)
 })
