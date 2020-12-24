@@ -59,7 +59,7 @@ router.get('/reviews/:id', requireToken, (req, res, next) => {
 // POST /reviews
 router.post('/reviews', requireToken, (req, res, next) => {
   // set owner of new reviews to be current user
-  console.log('this is req', req)
+  // console.log('this is req', req)
   req.body.review.owner = req.user.id
 
   Reviews.create(req.body.review)
