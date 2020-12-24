@@ -85,7 +85,7 @@ router.patch('/reviews/:id', requireToken, removeBlanks, (req, res, next) => {
     .then(review => {
       // pass the `req` object and the Mongoose record to `requireOwnership`
       // it will throw an error if the current user isn't the owner
-      requireOwnership(req, review)
+      // requireOwnership(req, review)
 
       // pass the result of Mongoose's `.update` to the next `.then`
       return review.updateOne(req.body.review)
